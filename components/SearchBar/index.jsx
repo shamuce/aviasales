@@ -52,12 +52,15 @@ export default class SearchBar extends React.Component {
 		if (checkStateCheckbox) {
 			this.setState({
 				arrayStopsList: []
-			})
-			this.props.filterTickets([]);
+			},() => {
+			this.props.filterTickets(this.state.arrayStopsList);
 			this.withOutStops.checked = false;
 			this.oneStops.checked = false;
 			this.twoStops.checked = false;
 			this.threeStops.checked = false;
+				}
+			)
+			
 		}
 	};
 
